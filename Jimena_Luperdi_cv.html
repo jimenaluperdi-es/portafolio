@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eva Jimena Luperdi · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0f;
+    color: #e4e4e7;
+    line-height: 1.6;
+    padding: 40px 20px;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+  }
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #111118;
+    border-radius: 20px;
+    border: 1px solid #1e1e2a;
+    box-shadow: 0 0 60px rgba(6, 182, 212, 0.04), 0 0 120px rgba(139, 92, 246, 0.02);
+    overflow: hidden;
+  }
+  header {
+    padding: 48px 48px 36px;
+    border-bottom: 1px solid #1e1e2a;
+    background: linear-gradient(180deg, #141420 0%, #111118 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #06b6d4, #8b5cf6, transparent);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #52525b;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .terminal-line .prompt { color: #22c55e; }
+  .terminal-line .cmd { color: #a1a1aa; }
+  header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #e4e4e7, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #71717a;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-bar a {
+    color: #22c55e;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-bar a:hover { color: #4ade80; }
+  .contact-bar .sep { color: #27272a; }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #0a0a0f;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+  .download-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  main { padding: 40px 48px 48px; }
+  section { margin-bottom: 36px; }
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #06b6d4;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #1e1e2a, transparent);
+  }
+  p { font-size: 14px; color: #d4d4d8; line-height: 1.7; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  .exp-item {
+    padding: 20px;
+    background: #14141f;
+    border-radius: 12px;
+    border: 1px solid #1e1e2a;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .exp-item:hover { border-color: #27273a; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .exp-header h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e4e4e7;
+  }
+  .exp-header h3 .company { color: #06b6d4; }
+  .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #52525b;
+    white-space: nowrap;
+  }
+  .exp-item ul {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .exp-item ul li {
+    font-size: 12px;
+    color: #a1a1aa;
+    background: #1a1a28;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid #22223a;
+  }
+
+  .project {
+    background: #14141f;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #1e1e2a;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .project:hover {
+    border-color: #06b6d4;
+    transform: translateY(-2px);
+  }
+  .project h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e4e4e7;
+    margin-bottom: 6px;
+  }
+  .project p { font-size: 12px; color: #a1a1aa; line-height: 1.6; }
+  .project .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .project .tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    background: #1a1a28;
+    color: #818cf8;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #22223a;
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #22c55e;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: #4ade80; }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .edu-item {
+    background: #14141f;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #1e1e2a;
+  }
+  .edu-item h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: #06b6d4;
+  }
+  .edu-item .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #52525b;
+    margin-top: 2px;
+  }
+  .edu-item p {
+    font-size: 12px;
+    color: #a1a1aa;
+    margin-top: 6px;
+  }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill-cat {
+    background: #14141f;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #1e1e2a;
+  }
+  .skill-cat h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #818cf8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .skill-cat p {
+    font-size: 12px;
+    color: #a1a1aa;
+    line-height: 1.7;
+  }
+
+  .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: #1a1a28;
+    color: #d4d4d8;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #22223a;
+    margin: 2px;
+  }
+  .tag.prog { color: #facc15; }
+  .tag.lang { color: #67e8f9; }
+
+  @media (max-width: 700px) {
+    body { padding: 16px 12px; }
+    header, main { padding-left: 20px; padding-right: 20px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2, .edu-grid, .skills-grid, .bottom-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 20px; }
+  }
+  @media print {
+    body { background: #fff; padding: 0; color: #000; }
+    .container { border: none; box-shadow: none; border-radius: 0; background: #fff; }
+    header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header h1 { -webkit-text-fill-color: #fff; }
+    header .contact-bar { color: #a1a1aa; }
+    header .terminal-line { color: #52525b; }
+    p { color: #333 !important; }
+    .exp-item, .project, .skill-cat, .edu-item { background: #f5f5f5; border-color: #ccc; }
+    .exp-item h3 { color: #000 !important; }
+    .exp-item ul li { background: #e8e8e8; color: #333 !important; border-color: #ccc; }
+    .exp-item .company { color: #0891b2 !important; }
+    .date { color: #555 !important; }
+    .contact-bar a { color: #22c55e; }
+    h2 { color: #0891b2; }
+    .project h3 { color: #000 !important; }
+    .project p { color: #444 !important; }
+    .project .tags span { color: #4f46e5 !important; background: #e8e8f0; border-color: #ccc; }
+    .project-link { color: #16a34a; }
+    .edu-item h3 { color: #0891b2 !important; }
+    .edu-item p { color: #444 !important; }
+    .skill-cat h3 { color: #4f46e5 !important; }
+    .skill-cat p { color: #444 !important; }
+    .tag { border-color: #bbb; background: #e8e8e8; color: #333 !important; }
+    .tag.prog { color: #ca8a04 !important; }
+    .tag.lang { color: #0e7490 !important; }
+    .terminal-line { color: #52525b; }
+    .print-only { display: inline !important; }
+  }
+  .print-only { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat cv.txt</span></div>
+    <h1>Eva Jimena Luperdi Caballero</h1>
+    <div class="contact-bar">
+      <span>jimenacaballero_2@hotmail.com</span>
+      <span class="sep">/</span>
+      <a href="https://github.com/jimenaluperdi-es" target="_blank">github.com/jimenaluperdi-es</a>
+      <span class="print-only sep">/</span>
+      <span class="print-only">626-999-871</span>
+    </div>
+    <a href="Jimena_Luperdi_cv.pdf" download class="download-btn">↓ Descargar CV</a>
+  </header>
+  <main>
+    <section>
+      <h2>Perfil</h2>
+      <p>Técnica informática con <strong style="color:#22c55e;">8+ años</strong> en mantenimiento HW/SW, redes y soporte técnico. Formación en desarrollo web y POO. Perfil híbrido <strong style="color:#818cf8;">sistemas + full stack</strong> (HTML, CSS, JavaScript, PHP, Node.js, bases de datos). Capaz de abordar tanto incidencias técnicas como el desarrollo y despliegue de aplicaciones web completas.</p>
+    </section>
+
+    <section>
+      <h2>Experiencia</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3><span class="company">Autónoma</span> — Técnica Microinformática</h3>
+          <span class="date">2005 → presente</span>
+        </div>
+        <ul>
+          <li>Reparación de equipos</li>
+          <li>Instalación y configuración de SO</li>
+          <li>Soporte a usuario</li>
+          <li>Diagnóstico HW/SW</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3><span class="company">JPC Informática</span> — Técnico Informático / TPV's</h3>
+          <span class="date">2018 → 2019</span>
+        </div>
+        <ul>
+          <li>Administración de BBDD</li>
+          <li>Diseño de tickets</li>
+          <li>Instalación de TPV's</li>
+          <li>Help desk</li>
+          <li>Formación al cliente</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3><span class="company">Bayer</span> — Técnico Informático</h3>
+          <span class="date">2018</span>
+        </div>
+        <ul>
+          <li>Actualización de software corporativo</li>
+          <li>Help desk</li>
+          <li>Diagnóstico HW/SW</li>
+          <li>Soporte en videollamadas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proyectos</h2>
+      <div class="grid-3">
+        <div class="project">
+          <h3>Damm Logistic Optimizer</h3>
+          <p>SPA logística con dashboard KPIs, rutas TSP heurísticas, visualización 2D de carga y recomendaciones automáticas.</p>
+          <div class="tags">
+            <span>HTML5</span><span>CSS3</span><span>JS</span><span>Leaflet</span><span>Chart.js</span>
+          </div>
+          <a href="https://jimenaluperdi-es.github.io/Damm/" target="_blank" class="project-link">→ ver proyecto</a>
+        </div>
+        <div class="project">
+          <h3>Películas App</h3>
+          <p>Catálogo de películas con PostgreSQL y despliegue en Render.</p>
+          <div class="tags">
+            <span>JavaScript</span><span>HTML</span><span>CSS</span><span>PL/pgSQL</span>
+          </div>
+          <a href="https://peliculas-cp3w.onrender.com" target="_blank" class="project-link">→ ver proyecto</a>
+        </div>
+        <div class="project">
+          <h3>Fabrimetal Web</h3>
+          <p>Sitio web corporativo con PHP y JavaScript.</p>
+          <div class="tags">
+            <span>HTML</span><span>PHP</span><span>CSS</span><span>JS</span>
+          </div>
+          <a href="https://jimenaluperdi-es.github.io/fabrimetal/" target="_blank" class="project-link">→ ver proyecto</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formación</h2>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <h3>Por Talento Digital</h3>
+          <div class="date">2026</div>
+          <p>Programadora Full Stack</p>
+        </div>
+        <div class="edu-item">
+          <h3>GROUP CIEF</h3>
+          <div class="date">2024</div>
+          <p>Cert. Prof.: Programación Orientada a Objetos y BBDD Relacionales</p>
+        </div>
+        <div class="edu-item">
+          <h3>Salesians Sarrià</h3>
+          <div class="date">2017 → 2018</div>
+          <p>Cert. Prof.: Desarrollo en Aplicaciones Web</p>
+        </div>
+        <div class="edu-item">
+          <h3>La Masia</h3>
+          <div class="date">2006 → 2007</div>
+          <p>Curso de Electrónica de Mantenimiento</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h3>Sistemas y Redes</h3>
+          <p>Instalación/reparación HW/SW · LAN/WAN/Wi-Fi · TCP/IP, DNS, DHCP · Routers, switches, firewalls · Windows, Linux, macOS</p>
+        </div>
+        <div class="skill-cat">
+          <h3>Seguridad y Virtualización</h3>
+          <p>Antivirus, cortafuegos, backups · Detección de vulnerabilidades · VMware, VirtualBox</p>
+        </div>
+        <div class="skill-cat">
+          <h3>Bases de Datos</h3>
+          <p>MySQL, SQL Server, PostgreSQL · Consultas y optimización de BBDD relacionales</p>
+        </div>
+        <div class="skill-cat">
+          <h3>Programación y Desarrollo</h3>
+          <p>HTML5, CSS3, JavaScript, PHP, Node.js · Java, C · Bash, PowerShell · Git/GitHub · Render, GitHub Pages · Docker</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="bottom-grid">
+        <div>
+          <h2>Skills</h2>
+          <p>
+            <span class="tag">Resolución de Problemas</span>
+            <span class="tag">Trabajo en Equipo</span>
+            <span class="tag">Comunicación Efectiva</span>
+            <span class="tag">Adaptabilidad</span>
+            <span class="tag">Organización</span>
+            <span class="tag">Atención al Detalle</span>
+          </p>
+          <h2 style="margin-top:20px;">Disponibilidad</h2>
+          <p><span class="tag">Inmediata</span><span class="tag">Carnet de conducir</span></p>
+        </div>
+        <div>
+          <h2>Idiomas</h2>
+          <p>
+            <span class="tag lang">Castellano · nativo</span>
+            <span class="tag lang">Catalán · intermedio</span>
+            <span class="tag lang">Inglés · intermedio</span>
+            <span class="tag lang">Italiano · básico</span>
+          </p>
+          <h2 style="margin-top:20px;">Educación</h2>
+          <p style="font-size:12px;color:#71717a;font-family:'JetBrains Mono',monospace;">
+            SENATI / 2002-2003 · Técnico Microinformática
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
