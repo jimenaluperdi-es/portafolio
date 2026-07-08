@@ -110,7 +110,7 @@
     opacity: 0.9;
     transform: translateY(-1px);
   }
-  main { padding: 48px 48px 48px; }
+  main { padding: 96px 48px 48px; }
   section { margin-bottom: 56px; }
   h2 {
     font-family: 'JetBrains Mono', monospace;
@@ -298,34 +298,68 @@
     header h1 { font-size: 20px; }
   }
   @media print {
-    body { background: #fff; padding: 0; color: #000; }
-    .container { border: none; box-shadow: none; border-radius: 0; background: #fff; }
-    header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    header h1 { -webkit-text-fill-color: #fff; }
-    header .contact-bar { color: #a1a1aa; }
-    header .terminal-line { color: #52525b; }
-    p { color: #333 !important; }
-    .exp-item, .project, .skill-cat, .edu-item { background: #f5f5f5; border-color: #ccc; }
-    .exp-item h3 { color: #000 !important; }
-    .exp-item ul li { background: #e8e8e8; color: #333 !important; border-color: #ccc; }
+    @page { margin: 10mm 14mm 14mm; size: A4; }
+    body { background: #fff; padding: 0; color: #000; font-size: 10pt; line-height: 1.4; }
+    .container { max-width: 100%; border: none; box-shadow: none; border-radius: 0; background: #fff; }
+    header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 22px 32px 28px; }
+    header::before { display: none; }
+    header::after { display: none; }
+    header h1 { font-size: 18pt; -webkit-text-fill-color: #fff; }
+    header .terminal-line { font-size: 7pt; color: #52525b; margin-bottom: 6px; }
+    header p[style*="z-index"] { color: #818cf8 !important; font-size: 8pt !important; }
+    main { padding: 52px 32px 6px; }
+    section { margin-bottom: 38px; }
+    section:last-of-type { margin-bottom: 0; }
+    .exp-item, .project, .edu-item, .skill-cat { page-break-inside: avoid; }
+    section:first-of-type { page-break-before: avoid; }
+    section.proyectos-destacados { margin-top: 32px; }
+    p { font-size: 9pt; color: #222 !important; line-height: 1.45; margin-bottom: 4px; }
+    h2 { font-size: 9pt; color: #0891b2; margin-top: 14px; margin-bottom: 6px; }
+    h2::after { background: linear-gradient(90deg, #ccc, transparent); }
+    .grid-2, .grid-3 { gap: 10px; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .exp-item { padding: 10px 14px; background: #f5f5f5; border-color: #ccc; margin-bottom: 8px; }
+    .exp-item h3 { font-size: 9pt; color: #000 !important; }
+    .exp-item ul { margin-top: 6px; gap: 4px; }
+    .exp-item ul li { font-size: 8pt; background: #eee; color: #222 !important; border-color: #ccc; padding: 4px 8px; }
     .exp-item .company { color: #0891b2 !important; }
-    .date { color: #555 !important; }
-    .contact-bar a { color: #22c55e; }
-    h2 { color: #0891b2; }
-    .project h3 { color: #000 !important; }
-    .project p { color: #444 !important; }
-    .project .tags span { color: #4f46e5 !important; background: #e8e8f0; border-color: #ccc; }
-    .project-link { color: #16a34a; }
-    .edu-item h3 { color: #0891b2 !important; }
-    .edu-item p { color: #444 !important; }
-    .skill-cat h3 { color: #4f46e5 !important; }
-    .skill-cat p { color: #444 !important; }
-    .tag { border-color: #bbb; background: #e8e8e8; color: #333 !important; }
+    .date { font-size: 7.5pt; color: #555 !important; }
+    .contact-bar { font-size: 9pt; color: #aaa; }
+    .contact-bar a { color: #4ade80; }
+    .project { padding: 12px; background: #f5f5f5; border-color: #ccc; }
+    .project:hover { transform: none; border-color: #ccc; }
+    .project h3 { font-size: 9pt; color: #000 !important; }
+    .project p { font-size: 8pt; color: #333 !important; }
+    .project .tags span { font-size: 7pt; color: #4f46e5 !important; background: #e8e8f0; border-color: #ccc; }
+    .project-link { font-size: 7.5pt; color: #16a34a; margin-top: 6px; margin-bottom: 2px; }
+    .project-date { display: block; font-size: 7.5pt; color: #777; }
+    .project .tags { gap: 2px; margin-top: 6px; }
+    .edu-grid { gap: 8px; }
+    .edu-item { padding: 10px 12px; background: #f5f5f5; border-color: #ccc; }
+    .edu-item h3 { font-size: 8.5pt; color: #0891b2 !important; }
+    .edu-item .date { font-size: 7.5pt; color: #666; }
+    .edu-item p { font-size: 8pt; color: #333 !important; }
+    .skills-grid { gap: 8px; }
+    .skill-cat { padding: 10px 12px; background: #f5f5f5; border-color: #ccc; }
+    .skill-cat h3 { font-size: 8.5pt; color: #4f46e5 !important; text-transform: uppercase; letter-spacing: 0.5pt; }
+    .skill-cat h3 .level { font-size: 7.5pt; color: #888; }
+    .skill-cat p { font-size: 8pt; color: #333 !important; margin-bottom: 0; }
+    .tag { font-size: 7.5pt; border-color: #bbb; background: #e8e8e8; color: #333 !important; padding: 2px 6px; }
     .tag.prog { color: #ca8a04 !important; }
     .tag.lang { color: #0e7490 !important; }
     .tag.method { background: #dfe5f0 !important; color: #4f46e5 !important; border-color: #bbb !important; }
     .terminal-line { color: #52525b; }
     .print-only { display: inline !important; }
+    .download-btn { display: none !important; }
+    .container { box-shadow: none; }
+    .contact-bar .sep { color: #aaa; }
+    .bottom-grid { gap: 10px; }
+    .bottom-grid h2[style*="margin-top"] { margin-top: 10px !important; }
+    .metodologias { gap: 3px; margin-bottom: 4px; }
+    .metodologias + p { margin-top: 4px !important; }
+    .metodologias span { margin: 1px; }
+    .tag { margin: 1px; }
+    .skill-cat h3 .level { color: #999; }
   }
   .print-only { display: none; }
 </style>
@@ -335,18 +369,21 @@
     <header>
       <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">cat cv.txt</span></div>
       <h1>Eva Jimena Luperdi Caballero</h1>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#818cf8;margin-top:8px;position:relative;z-index:1;">Técnico informático · Diseñadora de base de datos · Full Stack</p>
       <div class="contact-bar">
-        <span>jimenacaballero_2@hotmail.com</span>
+        <a href="mailto:jimenaluperdi@gmail.com">jimenaluperdi@gmail.com</a>
         <span class="sep">/</span>
         <a href="https://github.com/jimenaluperdi-es" target="_blank">github.com/jimenaluperdi-es</a>
-        <span class="print-only sep">/</span>
-        <span class="print-only">626-999-871</span>
+        <span class="sep">/</span>
+        <a href="https://linkedin.com/in/jimena-luperdi" target="_blank">linkedin.com/in/jimena-luperdi</a>
+        <span class="sep">/</span>
+        <span>626-999-871</span>
       </div>
-      <a href="Jimena_Luperdi_cv.pdf" download class="download-btn">↓ Descargar CV</a>
+      <a href="Eva_Jimena_Luperdi_CV.pdf" download class="download-btn">↓ Descargar CV</a>
     </header>
     <main>
 
-      <!-- ===== PERFIL REVISADO ===== -->
+      <!-- ===== PERFIL ===== -->
       <section>
         <h2>Perfil</h2>
         <p>
@@ -360,16 +397,12 @@
           no solo escribo código, sino que sé cómo desplegarlo, optimizar su rendimiento en red
           y mantenerlo en producción. Esta visión 360º me permite <strong>actuar como puente natural
             entre desarrollo y operaciones (DevOps)</strong>, anticipando problemas de infraestructura
-          que un desarrollador puro no vería hasta el despliegue.
-        </p>
-        <p>
-          Busco un puesto donde pueda <strong>seguir creciendo como desarrolladora</strong>,
-          aportando mi experiencia en sistemas para construir aplicaciones robustas,
-          bien testadas y fáciles de mantener.
+          que un desarrollador puro no vería hasta el despliegue,
+          construyendo aplicaciones robustas, bien testadas y fáciles de mantener.
         </p>
       </section>
 
-      <!-- ===== EXPERIENCIA REVISADA ===== -->
+      <!-- ===== EXPERIENCIA ===== -->
       <section>
         <h2>Experiencia</h2>
 
@@ -420,7 +453,7 @@
       </section>
 
       <!-- ===== PROYECTOS REVISADOS ===== -->
-      <section>
+      <section class="proyectos-destacados">
         <h2>Proyectos Destacados</h2>
         <div class="grid-3">
 
