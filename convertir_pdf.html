@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir CV a PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body onload="convertirPDF()">
+    <p>Convirtiendo CV a PDF...</p>
+    
+    <script>
+        function convertirPDF() {
+            const url = 'file:///c:/Users/UsuarioM/Desktop/portafolio-master/index.html';
+            
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    // Crear un elemento div temporal
+                    const element = document.createElement('div');
+                    element.innerHTML = html;
+                    
+                    // Opciones para html2pdf
+                    const options = {
+                        margin: 10,
+                        filename: 'Eva_Jimena_Luperdi_CV.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true },
+                        jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+                    };
+                    
+                    // Convertir a PDF
+                    html2pdf().set(options).from(element).save();
+                    
+                    setTimeout(() => {
+                        document.body.innerHTML = '<p>✓ PDF descargado correctamente</p>';
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.body.innerHTML = '<p>Error al convertir: ' + error.message + '</p>';
+                });
+        }
+    </script>
+</body>
+</html>
